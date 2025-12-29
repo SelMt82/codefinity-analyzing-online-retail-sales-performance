@@ -5,12 +5,16 @@ import seaborn as sns
 # Load subset for performance
 df = pd.read_csv("online_retail.csv")
 
+# Your code starts here
+
 # 1. Create a revenue column
 df['Revenue'] = df['Quantity'] * df['UnitPrice']
 
 # 2. Group by Country and sum the revenue
 revenue_by_country = df.groupby('Country')['Revenue'].sum().sort_values(ascending=False)
 
+# 3. Display the total revenue per country
+print(revenue_by_country)
 # 3. Print exact data values for the plot
 print("Revenue by Country Data:", revenue_by_country.to_dict())
 
